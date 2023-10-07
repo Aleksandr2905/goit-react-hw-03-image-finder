@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = 'https://pixabay.com/api/';
+const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '39423334-465aef10dece7a90d90ef79ec';
 
 const instance = axios.create({ baseURL: BASE_URL });
 
 
 export const fetchRequest = async (query = 'cat', page = 1) => {
-    const { data } = await instance.get({
+    const { data } = await instance.get(`/`,{
         params: {
             key: API_KEY,
             q: query,
@@ -15,9 +15,10 @@ export const fetchRequest = async (query = 'cat', page = 1) => {
             orientation: 'horizontal',
             per_page: 12,
             page: page,
-        }
+        }        
     });
-    return data;
     
+    return data; 
+        
 };
 
