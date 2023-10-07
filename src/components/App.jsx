@@ -88,7 +88,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <Searchbar
           handleInputChange={this.handleInputChange}
           onSubmit={this.onSubmit}
