@@ -46,8 +46,22 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchImage();
+    this.fetchRandomImages();
   }
+
+  fetchRandomImages = async () => {
+    try {
+      this.setState({ isLoading: true });
+      const randomHits = await fetchRequest(
+        Math.round(Math.random() * (1000 - 10) + 10)
+      );
+      this.setState({ hits: randomHits.hits, showLoadMore: false });
+    } catch (error) {
+      this.setState({ error: error.message });
+    } finally {
+      this.setState({ isLoading: false });
+    }
+  };
 
   componentDidUpdate(_, prevState) {
     const { query, page } = this.state;
