@@ -45,6 +45,10 @@ export class App extends Component {
     }
   };
 
+  componentDidMount() {
+    this.fetchImage();
+  }
+
   componentDidUpdate(_, prevState) {
     const { query, page } = this.state;
     if (prevState.query !== query || prevState.page !== page) {
