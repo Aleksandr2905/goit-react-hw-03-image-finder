@@ -53,7 +53,7 @@ export class App extends Component {
     try {
       this.setState({ isLoading: true });
       const randomHits = await fetchRequest(
-        Math.round(Math.random() * (1000 - 10) + 10)
+        Math.round(Math.random() * (100 - 10) + 10)
       );
       this.setState({ hits: randomHits.hits, showLoadMore: false });
     } catch (error) {
