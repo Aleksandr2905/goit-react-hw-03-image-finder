@@ -13,8 +13,6 @@ export class App extends Component {
     hits: [],
     query: '',
     page: 1,
-    per_page: 12,
-    tags: '',
     isLoading: false,
     error: null,
     showLoadMore: false,
